@@ -1,0 +1,23 @@
+/**
+ * practice of using an object to store values retuned by function calls to reduce total number of function calls in a recursive functions.
+ */
+
+const memo = {}
+
+const fib = (n) => {
+  if (n < 0) {
+    throw new error('positive numbers only')
+  }
+  if (n == 1 || n == 0) return n
+  if (memo.hasOwnProperty(n)) {
+    return memo[n]
+  } else {
+    const result = fib(n - 1) + fib(n - 2)
+    memo[n] = result
+    return result
+  }
+}
+
+// Test your code with calls here:
+console.log(fib(20))
+console.log(fib(200))
